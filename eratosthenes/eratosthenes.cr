@@ -4,7 +4,7 @@
 # to the Atkin sieve.
 # Used to generate up to N primes using the Crystal language.
 
-struct Int32
+struct Int
   def eratosthenes
     # Returns a hash of primes Int => Bool
     # Where h[i] => true for prime numbers
@@ -26,12 +26,12 @@ struct Int32
   end
 end
 
-require "benchmark"
+#require "benchmark"
 
-runs = 1
-Benchmark.bm do |x|
-  x.report { runs.times do 100.eratosthenes; end }
-  x.report { runs.times do 10000.eratosthenes; end }
-  x.report { runs.times do 1000000.eratosthenes; end }
-  x.report { runs.times do 10000000.eratosthenes; end }
-end
+#runs = 1
+#Benchmark.bm do |x|
+#  x.report { runs.times do 100.eratosthenes; end }
+#  x.report { runs.times do 10000.eratosthenes; end }
+#  x.report { runs.times do 1000000.eratosthenes; end }
+#  x.report { runs.times do 10000000.eratosthenes; end }
+#end
