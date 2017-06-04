@@ -26,13 +26,12 @@ struct Int32
   end
 end
 
-# require "benchmark"
-#
-# runs = 1
-# Benchmark.bm do |x|
-#   x.report { runs.times do 100.eratosthenes; end }
-#   x.report { runs.times do 10000.eratosthenes; end }
-#   x.report { runs.times do 1000000.eratosthenes; end }
-#   x.report { runs.times do 10000000.eratosthenes; end }
-#   x.report { runs.times do 100000000.eratosthenes; end }
-# end
+require "benchmark"
+
+runs = 1
+Benchmark.bm do |x|
+  x.report { runs.times do 100.eratosthenes; end }
+  x.report { runs.times do 10000.eratosthenes; end }
+  x.report { runs.times do 1000000.eratosthenes; end }
+  x.report { runs.times do 10000000.eratosthenes; end }
+end

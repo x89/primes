@@ -40,7 +40,6 @@ end
 # x:
 x = (2..max_prime).select { |x| x }
 # y:
-y = x.each_with_index.map { |x, i| x - i }
 res = (x+y).combination(2).to_a.uniq.map{|x,y| 3 * x**2 - y**2}
 res.reject! { |x| x > max_prime }
 res.each do |p|
