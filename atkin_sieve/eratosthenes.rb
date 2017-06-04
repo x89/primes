@@ -17,11 +17,19 @@ class Integer
     (2..sqrt_n).each do |i|
       if h[i] == true then
         (i*i..n).step(i).each do |j|
-          puts "Doing for #{j}"
           h[j] = false
         end
       end
     end
     h
   end
+end
+
+require 'benchmark'
+
+runs = 100
+Benchmark.bm do |x|
+  x.report { runs.times do 100.eratosthenes; end }
+  x.report { runs.times do 10000.eratosthenes; end }
+  x.report { runs.times do 1000000.eratosthenes; end }
 end
