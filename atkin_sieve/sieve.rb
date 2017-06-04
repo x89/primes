@@ -20,7 +20,6 @@ res.reject! { |x| x > max_prime }
 res.each do |p|
   if [1, 13, 17, 29, 37, 41, 49, 53].include? p then
     $primes[p] = !$primes[p]
-    puts "Switched #{p}"
   end
 end
 
@@ -34,12 +33,22 @@ res.reject! { |x| x > max_prime }
 res.each do |p|
   if [7, 19, 31, 43].include? p then
     $primes[p] = !$primes[p]
-    puts "Switched #{p}"
   end
 end
 
 # 3.3 Flip for [11, 23, 47, 59] for 3x² - y² = n
-
+# x:
+x = (2..max_prime).select { |x| x }
+# y:
+y = x.each_with_index.map { |x, i| x - i }
+res = (x+y).combination(2).to_a.uniq.map{|x,y| 3 * x**2 - y**2}
+res.reject! { |x| x > max_prime }
+res.each do |p|
+  if [11, 23, 47, 59].include? p then
+    $primes[p] = !$primes[p]
+    puts "Switched #{p}"
+  end
+end
 
 puts "#{$primes}"
 $primes.reject! { |k,v| v == false }
