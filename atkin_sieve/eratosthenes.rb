@@ -9,8 +9,11 @@ Used to generate up to N primes.
 
 class Integer
   def eratosthenes
-    """Returns a hash of primes Int => Bool."""
-    n = self  # because I prefer n
+    """
+    Returns a hash of primes Int => Bool
+    Where h[i] => true for prime numbers
+    """
+    n = self  # Because I prefer n
     sqrt_n = Math.sqrt(n)
     h = Hash[(1..n).each.map { |x| [x, true] }]
     h[1] = false
@@ -25,12 +28,12 @@ class Integer
   end
 end
 
-require 'benchmark'
-
-runs = 1
-Benchmark.bm do |x|
-  x.report { runs.times do 100.eratosthenes; end }
-  x.report { runs.times do 10000.eratosthenes; end }
-  x.report { runs.times do 1000000.eratosthenes; end }
-  x.report { runs.times do 10000000.eratosthenes; end }
-end
+# require 'benchmark'
+#
+# runs = 1
+# Benchmark.bm do |x|
+#   x.report { runs.times do 100.eratosthenes; end }
+#   x.report { runs.times do 10000.eratosthenes; end }
+#   x.report { runs.times do 1000000.eratosthenes; end }
+#   x.report { runs.times do 10000000.eratosthenes; end }
+# end
